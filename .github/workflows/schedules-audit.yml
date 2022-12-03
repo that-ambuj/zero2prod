@@ -1,4 +1,4 @@
-name: Scheduled Audio
+name: Scheduled Audit
 
 on:
   schedule:
