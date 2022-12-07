@@ -1,6 +1,6 @@
 use sqlx::PgPool;
 use std::net::TcpListener;
-use zero2prod::configuration::{get_configuration};
+use zero2prod::configuration::get_configuration;
 
 pub struct TestApp {
     pub address: String,
@@ -19,8 +19,8 @@ async fn spawn_app() -> TestApp {
             .await
             .expect("failed to connect to postgres");
 
-    let server =
-        zero2prod::run(listener, connection_pool.clone()).expect("Failed to bind address");
+    let server = zero2prod::run(listener, connection_pool.clone())
+        .expect("Failed to bind address");
 
     let _ = tokio::spawn(server);
 
